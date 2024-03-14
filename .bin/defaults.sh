@@ -60,7 +60,7 @@ defaults -currentHost write -g com.apple.mouse.tapBehavior -bool "true"
 ## 軌跡の速さ
 defaults write -g com.apple.trackpad.scaling 3
 ## スクロールの方向
-defaults write -g com.apple.swipescrolldirection -bool "true"
+# defaults write -g com.apple.swipescrolldirection -bool "true"
 
 # Mouse
 ## 軌跡の速さ
