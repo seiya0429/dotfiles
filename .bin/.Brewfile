@@ -10,6 +10,7 @@ brew "terraform"
 brew "mas"
 brew "gh"
 brew "fvm"
+brew "asdf"
 
 cask "1password"
 cask "1password-cli"
@@ -37,7 +38,7 @@ cask "another-redis-desktop-manager"
 cask "minisim"
 cask "google-japanese-ime"
 cask "karabiner-elements"
-cask "alfred"
+cask "google-chrome"
 
 mas "Magnet マグネット", id: 441258766
 mas "LINE", id: 539883307
