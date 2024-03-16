@@ -15,7 +15,6 @@ brew "fvm"
 
 cask "1password"
 cask "1password-cli"
-cask "ngrok"
 cask "warp"
 cask "xcodes"
 cask "zoom"
