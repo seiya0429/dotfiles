@@ -19,9 +19,6 @@ source ${DOTFILES_ZSH_HOME}/.zshrc.setting
 # setting starship
 eval "$(starship init zsh)"
 
-# check_update_dotfiles
-(source ${DOTFILES_ZSH_HOME}/.zshrc.check_update_dotfiles &) > /dev/null
-
 # autocomplete
 source ${DOTFILES_ZSH_HOME}/.zshrc.autocomplete
 
@@ -30,3 +27,6 @@ source ${DOTFILES_ZSH_HOME}/.zshrc.path
 
 # setting asdf
 source ${DOTFILES_ZSH_HOME}/.zshrc.asdf
+
+# check_update_dotfiles
+(source ${DOTFILES_ZSH_HOME}/.zshrc.check_update_dotfiles &) > /dev/null
