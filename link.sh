@@ -5,7 +5,7 @@ ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/zsh/.zprofile ~/.zprofile
 
 # starship
-mkdir -p ~/.config/starship
+mkdir -p ~/.config
 ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
 # karabiner
