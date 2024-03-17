@@ -1,5 +1,5 @@
 # Do everything.
-all: init brew link defaults
+all: init link brew defaults
 
 # Set initial preference.
 init:
@@ -8,6 +8,9 @@ init:
 # Link dotfiles.
 link:
 	./link.sh
+
+brew:
+	./brew.sh
 
 # Set macOS system preferences.
 defaults:
