@@ -1,8 +1,7 @@
-cask_args appdir: "/Applications"
-
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
 tap "leoafarias/fvm"
+tap "homebrew/cask-fonts"
 
 brew "git"
 brew "openjdk@17"
@@ -11,10 +10,14 @@ brew "mas"
 brew "gh"
 brew "fvm"
 brew "asdf"
+brew "starship"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
+brew "peco"
 
 cask "1password"
 cask "1password-cli"
-cask "warp"
 cask "xcodes"
 cask "zoom"
 cask "slack"
@@ -39,6 +42,7 @@ cask "minisim"
 cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "google-chrome"
+cask "font-fira-code-nerd-font"
 
 mas "Magnet マグネット", id: 441258766
 mas "LINE", id: 539883307

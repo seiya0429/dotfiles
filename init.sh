@@ -5,6 +5,9 @@ if [ ! -f /opt/homebrew/bin/brew ]
   then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    brew bundle --file "~/dotfiles/homebrew/.Brewfile"
+
   else
     echo "Homebrew already installed."
 fi
