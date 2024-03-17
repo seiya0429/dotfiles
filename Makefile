@@ -16,7 +16,3 @@ defaults:
 # Install macOS applications.
 brew:
 	.bin/brew.sh
-
-# Set up GitHub.
-github:
-	.bin/github.sh
