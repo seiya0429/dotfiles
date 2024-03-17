@@ -42,6 +42,7 @@ cask "minisim"
 cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "google-chrome"
+cask "font-fira-code-nerd-font"
 
 mas "Magnet マグネット", id: 441258766
 mas "LINE", id: 539883307
