@@ -5,7 +5,7 @@
 ```
 $ cd ~
 $ git clone git@github.com:seiya0429/dotfiles.git
-$ chmod 774 dotfiles/.bin/init.sh dotfiles/.bin/link.sh dotfiles/.bin/defaults.sh dotiles/.bin/brew.sh dotfiles/.bin/github.sh
+$ chmod 774 dotfiles/.bin/init.sh dotfiles/.bin/link.sh dotfiles/.bin/defaults.sh dotfiles/.bin/brew.sh
 $ make all
 ```
 
