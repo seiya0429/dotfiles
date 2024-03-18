@@ -26,7 +26,8 @@ Host *
 
 ### Raycastの設定
 
-以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
+- 以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
+- 1Password Extensionの設定で、1Password CLIのパスを設定する
 
 `FiraCode Nerd Font`に設定
 
