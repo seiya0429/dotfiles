@@ -29,6 +29,27 @@ Host *
 
 `FiraCode Nerd Font`に設定
 
+### asdfの設定
+
+#### Ruby
+
+opensslのパスを指定しないとエラーが出る
+
+```bash
+$ asdf plugin add ruby
+$ asdf install ruby 3.3.0 --with-openssl-dir="/opt/homebrew/bin/openssl"
+$ asdf global ruby 3.3.0
+```
+
+### Node.js
+
+
+```bash
+$ asdf plugin add nodejs
+$ asdf install nodejs 18.16.0
+$ asdf global nodejs 18.16.0
+```
+
 ### TablePlusの設定
 
 - ライセンスキーの設定
