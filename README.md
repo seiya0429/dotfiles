@@ -5,11 +5,14 @@
 ```
 $ cd ~
 $ git clone git@github.com:seiya0429/dotfiles.git
-$ chmod 774 dotfiles/init.sh dotfiles/link.sh dotfiles/defaults.sh
 $ make all
 ```
 
-## SSH鍵の設定
+## 手動での設定
+
+### Google日本語入力の設定
+
+### SSH鍵の設定
 1PasswordのSSH鍵を使うための設定追加
 SSHエージェントを1Passwordアプリから確認して追加する
 
@@ -19,7 +22,17 @@ Host *
 	IdentityAgent "~/Library/Group Containers/XXXXXXX.com.1password/t/agent.sock"
 ```
 
-## Mas CLIでインストールするアプリケーションIDを探す方法
+### Terminalのフォント設定
+
+### Raycastの設定
+
+以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
+
+`FiraCode Nerd Font`に設定
+
+## TIPS
+
+### Mas CLIでインストールするアプリケーションIDを探す方法
 ```
 mas search "アプリケーション名"
 ```
