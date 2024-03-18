@@ -21,7 +21,6 @@ $ cat ~/.ssh/config
 Host *
 	IdentityAgent "~/Library/Group Containers/XXXXXXX.com.1password/t/agent.sock"
 ```
-
 ### Terminalのフォント設定
 
 ### Raycastの設定
@@ -29,6 +28,14 @@ Host *
 - 以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
 
 `FiraCode Nerd Font`に設定
+
+### TablePlusの設定
+
+- ライセンスキーの設定
+
+### CleanMyMacの設定
+
+- ライセンスキーの設定
 
 ## TIPS
 
