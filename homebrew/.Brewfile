@@ -12,6 +12,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "peco"
+brew "jq" # for flutter
 
 cask "1password"
 cask "1password-cli"
@@ -42,4 +43,3 @@ cask "google-chrome"
 cask "font-fira-code-nerd-font"
 
 mas "Magnet マグネット", id: 441258766
-mas "LINE", id: 539883307
