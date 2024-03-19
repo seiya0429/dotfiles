@@ -59,8 +59,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write -g com.apple.mouse.tapBehavior -bool "true"
 ## 軌跡の速さ
 defaults write -g com.apple.trackpad.scaling 3
-## スクロールの方向
-# defaults write -g com.apple.swipescrolldirection -bool "true"
 
 # Mouse
 ## 軌跡の速さ
@@ -75,16 +73,6 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ## フルキーボードアクセスを有効化
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-## 本体キーボードのCapsLockキーの動作をControlにリマップ
-keyboard_id="$(ioreg -c AppleEmbeddedKeyboard -r | grep -Eiw "VendorID|ProductID" | awk '{ print $4 }' | paste -s -d'-\n' -)-0"
-defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id} -array-add "
-<dict>
-  <key>HIDKeyboardModifierMappingDst</key>\
-  <integer>30064771300</integer>\
-  <key>HIDKeyboardModifierMappingSrc</key>\
-  <integer>30064771129</integer>\
-</dict>
-"
 
 # Security
 ## ファイアウォールon
