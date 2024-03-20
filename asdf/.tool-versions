@@ -2,3 +2,6 @@ nodejs 18.16.0
 ruby 3.3.0
 flutter 3.13.4
 python 3.9.18
+java openjdk-17
+terraform 1.5.7
+gcloud 412.0.0

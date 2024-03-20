@@ -3,7 +3,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
 brew "git"
-brew "openjdk@17"
 brew "mas"
 brew "gh"
 brew "asdf"
