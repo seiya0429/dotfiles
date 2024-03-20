@@ -5,3 +5,4 @@ python 3.9.18
 java openjdk-17
 terraform 1.5.7
 gcloud 412.0.0
+pnpm 8.15.5
