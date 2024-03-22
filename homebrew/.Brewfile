@@ -40,5 +40,6 @@ cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "google-chrome"
 cask "font-fira-code-nerd-font"
+cask "iterm2"
 
 mas "Magnet マグネット", id: 441258766
