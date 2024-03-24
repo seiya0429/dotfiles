@@ -6,3 +6,4 @@ java openjdk-17
 terraform 1.5.7
 gcloud 412.0.0
 firebase 13.1.0
+pnpm 8.10.5
