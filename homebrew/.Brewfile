@@ -12,6 +12,7 @@ brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "peco"
 brew "jq" # for flutter
+brew "supabase/tap/supabase"
 
 cask "1password"
 cask "1password-cli"
