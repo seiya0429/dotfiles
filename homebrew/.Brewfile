@@ -12,7 +12,7 @@ brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "peco"
 brew "jq" # for flutter
-brew "supabase/tap/supabase"
+# brew "supabase/tap/supabase" Xcodeを15にする必要がある
 
 cask "1password"
 cask "1password-cli"
