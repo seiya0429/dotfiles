@@ -42,5 +42,6 @@ cask "karabiner-elements"
 cask "google-chrome"
 cask "font-fira-code-nerd-font"
 cask "iterm2"
+cask "discord"
 
 mas "Magnet マグネット", id: 441258766
