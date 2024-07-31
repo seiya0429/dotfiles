@@ -13,7 +13,7 @@ brew "zsh-autosuggestions"
 brew "peco"
 brew "jq" # for flutter
 brew "fastlane" # for iOS build
-# brew "supabase/tap/supabase" Xcodeを15にする必要がある
+brew "supabase/tap/supabase"
 
 cask "1password"
 cask "1password-cli"
@@ -44,5 +44,6 @@ cask "google-chrome"
 cask "font-fira-code-nerd-font"
 cask "iterm2"
 cask "discord"
+cask "cursor"
 
 mas "Magnet マグネット", id: 441258766
