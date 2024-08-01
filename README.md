@@ -1,10 +1,13 @@
 # dotfiles
 
+## 事前準備
+- Apple Accountのログイン
+
 ## 使い方
 
 ```
 $ cd ~
-$ git clone git@github.com:seiya0429/dotfiles.git
+$ git clone https://github.com/seiya0429/dotfiles.git
 $ make all
 ```
 
@@ -16,13 +19,13 @@ $ make all
 1PasswordのSSH鍵を使うための設定追加
 SSHエージェントを1Passwordアプリから確認して追加する
 
+下記が追加されていることを確認
+
 ```
 $ cat ~/.ssh/config
 Host *
 	IdentityAgent "~/Library/Group Containers/XXXXXXX.com.1password/t/agent.sock"
 ```
-### Terminalのフォント設定
-
 ### Raycastの設定
 
 - 以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
