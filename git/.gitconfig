@@ -1,3 +1,5 @@
 [user]
 	name = seiya0429
 	email = 51691769+seiya0429@users.noreply.github.com
+[alias]
+	pf = "push --force-with-lease --force-if-includes"
