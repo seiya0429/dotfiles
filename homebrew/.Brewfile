@@ -14,6 +14,7 @@ brew "peco"
 brew "jq" # for flutter
 brew "fastlane" # for iOS build
 brew "supabase/tap/supabase"
+brew "lefthook"
 
 cask "1password"
 cask "1password-cli"
