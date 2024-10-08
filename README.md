@@ -13,8 +13,6 @@ $ make all
 
 ## 手動での設定
 
-### Google日本語入力の設定
-
 ### SSH鍵の設定
 1PasswordのSSH鍵を使うための設定追加
 SSHエージェントを1Passwordアプリから確認して追加する
