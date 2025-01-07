@@ -46,5 +46,6 @@ cask "font-fira-code-nerd-font"
 cask "iterm2"
 cask "discord"
 cask "cursor"
+cask "keyboardcleantool"
 
 mas "Magnet マグネット", id: 441258766
