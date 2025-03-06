@@ -15,6 +15,7 @@ brew "jq" # for flutter
 brew "fastlane" # for iOS build
 brew "supabase/tap/supabase"
 brew "lefthook"
+brew "cloudflare/cloudflare/cloudflared" # for cloudflare tunnel
 
 cask "1password"
 cask "1password-cli"
