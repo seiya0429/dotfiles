@@ -23,3 +23,8 @@ ln -sf ~/dotfiles/git/ignore ~/.config/git/ignore
 
 # homebrew
 ln -sf ~/dotfiles/homebrew/.Brewfile ~/.Brewfile
+
+# claude
+mkdir -p ~/.claude
+ln -sf ~/dotfiles/claude/settings.json ~/.claude/settings.json
+ln -sf ~/dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md

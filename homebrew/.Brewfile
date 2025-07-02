@@ -11,11 +11,9 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "peco"
-brew "jq" # for flutter
-brew "fastlane" # for iOS build
 brew "supabase/tap/supabase"
 brew "lefthook"
-brew "cloudflare/cloudflare/cloudflared" # for cloudflare tunnel
+brew "cloudflare" # for cloudflare tunnel
 
 cask "1password"
 cask "1password-cli"
@@ -47,5 +45,6 @@ cask "iterm2"
 cask "discord"
 cask "cursor"
 cask "keyboardcleantool"
+cask "cyberduck"
 
 mas "Magnet マグネット", id: 441258766
