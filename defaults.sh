@@ -85,3 +85,6 @@ networksetup -setdnsservers Wi-Fi 2001:4860:4860::8844 2001:4860:4860::8888 8.8.
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool "false"
 ## スペルの訂正を無効にする
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
+
+# SpotLight インデックスを無効化
+sudo mdutil -a -i off

@@ -24,6 +24,14 @@ $ cat ~/.ssh/config
 Host *
 	IdentityAgent "~/Library/Group Containers/XXXXXXX.com.1password/t/agent.sock"
 ```
+
+
+### MacOSの設定手動変更
+
+- Spotlightのショートカットを無効化する
+- デフォルトブラウザを変更する
+- ライブ変換オフ
+
 ### Raycastの設定
 
 - 以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
