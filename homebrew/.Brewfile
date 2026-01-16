@@ -13,7 +13,7 @@ brew "zsh-autosuggestions"
 brew "peco"
 brew "supabase/tap/supabase"
 brew "lefthook"
-brew "cloudflare" # for cloudflare tunnel
+brew "ngrok"
 
 cask "1password"
 cask "1password-cli"
