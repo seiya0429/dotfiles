@@ -11,7 +11,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "peco"
-brew "supabase/tap/supabase"
+brew "supabase"
 brew "lefthook"
 brew "ngrok"
 
