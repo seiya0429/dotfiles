@@ -25,45 +25,21 @@ Host *
 	IdentityAgent "~/Library/Group Containers/XXXXXXX.com.1password/t/agent.sock"
 ```
 
-
 ### MacOSの設定手動変更
 
 - Spotlightのショートカットを無効化する
 - デフォルトブラウザを変更する
 - ライブ変換オフ
 
-### Raycastの設定
-
-- 以前のPCからRaycastの設定ファイルをexportして新しいPCにimportする
-
-`FiraCode Nerd Font`に設定
-
 ### asdfの設定
 
-#### Ruby
-
-opensslのパスを指定しないとエラーが出る
-
-```bash
-$ asdf plugin add ruby
-$ asdf install ruby 3.3.0 --with-openssl-dir="/opt/homebrew/bin/openssl"
-$ asdf global ruby 3.3.0
-```
 ### Node.js
 
 ```bash
 $ asdf plugin add nodejs
-$ asdf install nodejs 18.16.0
-$ asdf global nodejs 18.16.0
+$ asdf install nodejs 20.9.0
+$ asdf global nodejs 20.9.0
 ```
-
-### TablePlusの設定
-
-- ライセンスキーの設定
-
-### CleanMyMacの設定
-
-- ライセンスキーの設定
 
 ## TIPS
 
