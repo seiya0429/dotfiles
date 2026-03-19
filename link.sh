@@ -28,3 +28,4 @@ ln -sf ~/dotfiles/homebrew/.Brewfile ~/.Brewfile
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/claude/settings.json ~/.claude/settings.json
 ln -sf ~/dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sfn ~/dotfiles/claude/commands ~/.claude/commands

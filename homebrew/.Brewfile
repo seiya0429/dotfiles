@@ -38,5 +38,6 @@ cask "discord"
 cask "cursor"
 cask "keyboardcleantool"
 cask "cyberduck"
+cask "claude-code"
 
 mas "Magnet マグネット", id: 441258766

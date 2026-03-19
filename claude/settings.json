@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git commit :*)",
+      "Bash(git push :*)",
+      "Bash(git merge :*)",
+      "Bash(git rebase :*)",
+      "Bash(rm -rf /*)",
+      "Bash(sudo :*)"
+    ],
+    "allow": [
+      "Bash(npx tsc:*)"
+    ]
+  },
+  "defaultMode": "auto",
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  }
+}
