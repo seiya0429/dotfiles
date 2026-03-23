@@ -12,8 +12,5 @@
       "Bash(npx tsc:*)"
     ]
   },
-  "defaultMode": "auto",
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
-  }
+  "defaultMode": "auto"
 }
