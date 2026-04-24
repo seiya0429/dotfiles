@@ -5,23 +5,18 @@
 ## 初回（新規 Mac）
 
 1. 事前準備: Apple ID ログインなど
-2. Homebrew 未導入なら [公式](https://brew.sh) の手順でインストール。または [install script](https://github.com/chezmoi/chezmoi#one-line-package-install) で chezmoi のみ入れて次へ。
+2. 次のどちらか: Homebrew 経由で `brew install chezmoi`、または [one-line install](https://github.com/chezmoi/chezmoi#one-line-package-install) で chezmoi のみ入れる。Homebrew 自体は未導入でも、初回の `chezmoi apply` 内で `run_once_after_darwin-homebrew.sh` がインストールする（ネットワーク必須）。
 3. リポジトリを元に初期化（GitHub 上の URL に置き換え）:
-
-   ```bash
+  ```bash
    chezmoi init https://github.com/seiya0429/dotfiles.git
    chezmoi apply
-   ```
-
+  ```
    このとき **sudo を求められる**ことがあります（`run_onchange_darwin-macos-defaults.sh` 内のファイアウォール・Spotlight 等）。
-
 4. 任意: [mizchi/chezmoi-dotfiles](https://github.com/mizchi/chezmoi-dotfiles#install) 同様、追加の skills 用 symlink が必要なら:
-
-   ```bash
+  ```bash
    ~/.claude/skills/install.sh
-   ```
-
-5. 補足ブートストラップ（Brew や Xcode ツールの一括チェック等）: `./init.sh` → `chezmoi apply` → `make brew` など（[`Makefile`](Makefile) の `all` 参照）
+  ```
+5. 補足ブートストラップ: `./init.sh`（Xcode Command Line Tools の確認）→ `chezmoi apply`。`dot_Brewfile` を変えたあとパッケージを揃える場合は、`chezmoi apply` 済みで `~/.Brewfile` があるなら `brew bundle --file ~/.Brewfile`、または PATH に Homebrew が無いときは `/opt/homebrew/bin/brew bundle --file ~/.Brewfile`。ソースだけ更新した段階なら `brew bundle --file ~/.local/share/chezmoi/dot_Brewfile`（chezmoi の既定のソースパス前提）。`run_once_*` を再実行したい場合は `chezmoi state delete-bucket --bucket=scriptState`（公式ドキュメント参照）。
 
 ## 日常的な編集
 
@@ -30,6 +25,7 @@
 ## 手動での設定
 
 ### SSH鍵の設定
+
 1PasswordのSSH鍵を使うための設定追加
 SSHエージェントを1Passwordアプリから確認して追加する
 
@@ -73,3 +69,4 @@ mas search "アプリケーション名"
 ### 移行前に `git clone` で `~/dotfiles` していた場合
 
 - 以降の正は `~/.local/share/chezmoi` の VCS です。内容を揃えたうえで `chezmoi init` し直すか、手元の clone を捨てて上記 `chezmoi init <url>` から入り直すと一貫します。
+
