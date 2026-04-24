@@ -1,15 +1,15 @@
 {
   "permissions": {
     "deny": [
-      "Bash(git commit :*)",
-      "Bash(git push :*)",
-      "Bash(git merge :*)",
-      "Bash(git rebase :*)",
       "Bash(rm -rf /*)",
-      "Bash(sudo :*)"
-    ],
-    "allow": [
-      "Bash(npx tsc:*)"
+      "Bash(sudo :*)",
+      "Read(.env*)",
+      "Edit(.env*)",
+      "Bash(cat *.env*)",
+      "Bash(head *.env*)",
+      "Bash(tail *.env*)",
+      "Bash(less *.env*)",
+      "Bash(more *.env*)"
     ]
   },
   "defaultMode": "auto"
