@@ -5,7 +5,7 @@
 ## 初回（新規 Mac）
 
 1. 事前準備: Apple ID ログインなど
-2. 次のどちらか: Homebrew 経由で `brew install chezmoi`、または [one-line install](https://github.com/chezmoi/chezmoi#one-line-package-install) で chezmoi のみ入れる。Homebrew 自体は未導入でも、初回の `chezmoi apply` 内で `run_once_after_darwin-homebrew.sh` がインストールする（ネットワーク必須）。
+2. 次のどちらか: Homebrew 経由で `brew install chezmoi`、または [one-line install](https://github.com/chezmoi/chezmoi#one-line-package-install) で chezmoi のみ入れる。Homebrew 自体は未導入でも、初回の `chezmoi apply` 内で `run_once_after_darwin-02-homebrew.sh` がインストールする（ネットワーク必須）。
 3. リポジトリを元に初期化（GitHub 上の URL に置き換え）:
   ```bash
    chezmoi init https://github.com/seiya0429/dotfiles.git
@@ -16,7 +16,7 @@
   ```bash
    ~/.claude/skills/install.sh
   ```
-5. 補足ブートストラップ: `./init.sh`（Xcode Command Line Tools の確認）→ `chezmoi apply`。`dot_Brewfile` を変えたあとパッケージを揃える場合は、`chezmoi apply` 済みで `~/.Brewfile` があるなら `brew bundle --file ~/.Brewfile`、または PATH に Homebrew が無いときは `/opt/homebrew/bin/brew bundle --file ~/.Brewfile`。ソースだけ更新した段階なら `brew bundle --file ~/.local/share/chezmoi/dot_Brewfile`（chezmoi の既定のソースパス前提）。`run_once_*` を再実行したい場合は `chezmoi state delete-bucket --bucket=scriptState`（公式ドキュメント参照）。
+5. 補足ブートストラップ: `chezmoi apply` 内で `run_after_darwin-01-xcode-clt.sh` が CLT 未導入時にインストーラを起動する。CLT のインストール完了後にもう一度 `chezmoi apply` するとよい。`dot_Brewfile` を変えたあとパッケージを揃える場合は、`chezmoi apply` 済みで `~/.Brewfile` があるなら `brew bundle --file ~/.Brewfile`、または PATH に Homebrew が無いときは `/opt/homebrew/bin/brew bundle --file ~/.Brewfile`。ソースだけ更新した段階なら `brew bundle --file ~/.local/share/chezmoi/dot_Brewfile`（chezmoi の既定のソースパス前提）。`run_once_*` を再実行したい場合は `chezmoi state delete-bucket --bucket=scriptState`（公式ドキュメント参照）。
 
 ## 日常的な編集
 
