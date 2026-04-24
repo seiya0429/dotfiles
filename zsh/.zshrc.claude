@@ -1,3 +1,0 @@
-# Claude Code — alternate account via CLAUDE_CONFIG_DIR
-# https://zenn.dev/mayuyu/articles/8cc4c5f35b41d9
-alias work-claude='CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'

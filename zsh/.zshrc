@@ -7,29 +7,76 @@ export DOTFILES_ZSH_HOME=${DOTFILES_HOME}/zsh
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# pecoでhistory検索
-source ${DOTFILES_ZSH_HOME}/.zshrc.peco
+# peco（Ctrl-r で履歴検索）
+# https://www.instagram.com/pecotecooo/?hl=en
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 
-# setting zsh history
-source ${DOTFILES_ZSH_HOME}/.zshrc.history
+# zsh history
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
 
-# zsh settings
-source ${DOTFILES_ZSH_HOME}/.zshrc.setting
+# zsh-autosuggestions / syntax-highlighting
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# setting starship
+# starship
 eval "$(starship init zsh)"
 
-# autocomplete
-source ${DOTFILES_ZSH_HOME}/.zshrc.autocomplete
+# completion（git 補完など）
+if [ ! -d ~/.zsh ]; then
+	mkdir -p ~/.zsh
+	curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+	curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+fi
 
-# path
-source ${DOTFILES_ZSH_HOME}/.zshrc.path
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 
-# setting asdf
-source ${DOTFILES_ZSH_HOME}/.zshrc.asdf
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# claude code (work profile)
-source ${DOTFILES_ZSH_HOME}/.zshrc.claude
+autoload -Uz compinit && compinit -i
 
-# check_update_dotfiles
-(source ${DOTFILES_ZSH_HOME}/.zshrc.check_update_dotfiles &) > /dev/null
+# path（Android / Expo 用コメントは元ファイル参照）
+# ----------   expo android build   -------------
+# export PATH="$PATH:$HOME/.pub-cache/bin"
+# export PATH="$PATH:$HOME/fvm/default/bin"
+# -----------------------------------------------
+
+# ----------   expo android build   -------------
+export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# -----------------------------------------------
+
+# asdf
+# https://github.com/asdf-vm/asdf/issues/1968#issuecomment-2665344943
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Claude Code — work profile（CLAUDE_CONFIG_DIR）
+# https://zenn.dev/mayuyu/articles/8cc4c5f35b41d9
+alias work-claude='CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
+
+# dotfiles に未コミット変更があるとき警告（バックグラウンド）
+# &! で disown し、[N] pid / [N] + done のジョブ通知でプロンプトが汚れないようにする
+(
+  if test -n "$(git -C ${DOTFILES_HOME} status --porcelain)" || ! git -C ${DOTFILES_HOME} diff --exit-code --stat --cached origin/main > /dev/null ; then
+    echo -e "\e[36m=== DOTFILES IS DIRTY ===\e[m" 1>&2
+    echo -e "\e[33mThe dotfiles have been changed.\e[m" 1>&2
+    echo -e "\e[36m=========================\e[m" 1>&2
+  fi
+) &!
