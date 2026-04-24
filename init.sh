@@ -1,20 +1,6 @@
 #!/bin/zsh
 
-# Install Homebrew
-if [ ! -f /opt/homebrew/bin/brew ]
-  then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    if [ -f "${HOME}/.Brewfile" ]; then
-      brew bundle --file "${HOME}/.Brewfile"
-    elif [ -f "${HOME}/.local/share/chezmoi/dot_Brewfile" ]; then
-      brew bundle --file "${HOME}/.local/share/chezmoi/dot_Brewfile"
-    fi
-
-  else
-    echo "Homebrew already installed."
-fi
+# Homebrew は chezmoi apply 内の run_once_after_darwin-homebrew.sh で扱う
 
 # Install xcode
 # Check if command line tools are installed
