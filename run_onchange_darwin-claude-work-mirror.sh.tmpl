@@ -1,0 +1,27 @@
+#!/bin/zsh
+# ~/.claude（chezmoi 管理）の内容を work 用プロファイル（~/.claude-work）へ揃える
+if [ "$(uname)" != "Darwin" ]; then
+	exit 0
+fi
+set -e
+root="{{ .chezmoi.destDir }}"
+: "${root:?}"
+c="${root}/.claude"
+w="${root}/.claude-work"
+if [[ ! -d "$c" ]]; then
+	echo "run_onchange_darwin-claude-work-mirror: $c missing; run chezmoi apply first" >&2
+	exit 0
+fi
+mkdir -p "$w"
+ln -sf "$c/settings.json" "$w/settings.json"
+ln -sf "$c/CLAUDE.md" "$w/CLAUDE.md"
+# ディレクトリは claude 側を指すシンボリック（1ソース扱い）
+if [[ -d "$c/hooks" ]]; then
+	ln -sfn "$c/hooks" "$w/hooks"
+fi
+if [[ -d "$c/skills" ]]; then
+	ln -sfn "$c/skills" "$w/skills"
+fi
+if [[ -d "$c/commands" ]]; then
+	ln -sfn "$c/commands" "$w/commands"
+fi

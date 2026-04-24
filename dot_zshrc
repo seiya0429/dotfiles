@@ -1,8 +1,12 @@
 if [[ -z "${DOTFILES_HOME}" ]]; then
-  export DOTFILES_HOME=~/dotfiles
+  _chz=$(chezmoi source-path 2>/dev/null)
+  if [[ -n "$_chz" ]]; then
+    export DOTFILES_HOME="$_chz"
+  else
+    export DOTFILES_HOME="${HOME}/.local/share/chezmoi"
+  fi
+  unset _chz
 fi
-
-export DOTFILES_ZSH_HOME=${DOTFILES_HOME}/zsh
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -74,7 +78,7 @@ alias work-claude='CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
 # dotfiles に未コミット変更があるとき警告（バックグラウンド）
 # &! で disown し、[N] pid / [N] + done のジョブ通知でプロンプトが汚れないようにする
 (
-  if test -n "$(git -C ${DOTFILES_HOME} status --porcelain)" || ! git -C ${DOTFILES_HOME} diff --exit-code --stat --cached origin/main > /dev/null ; then
+  if test -d "${DOTFILES_HOME}/.git" && ( test -n "$(git -C ${DOTFILES_HOME} status --porcelain)" || ! git -C ${DOTFILES_HOME} diff --exit-code --stat --cached origin/main > /dev/null 2>&1 ) ; then
     echo -e "\e[36m=== DOTFILES IS DIRTY ===\e[m" 1>&2
     echo -e "\e[33mThe dotfiles have been changed.\e[m" 1>&2
     echo -e "\e[36m=========================\e[m" 1>&2

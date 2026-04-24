@@ -6,7 +6,11 @@ if [ ! -f /opt/homebrew/bin/brew ]
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    brew bundle --file "~/dotfiles/homebrew/.Brewfile"
+    if [ -f "${HOME}/.Brewfile" ]; then
+      brew bundle --file "${HOME}/.Brewfile"
+    elif [ -f "${HOME}/.local/share/chezmoi/dot_Brewfile" ]; then
+      brew bundle --file "${HOME}/.local/share/chezmoi/dot_Brewfile"
+    fi
 
   else
     echo "Homebrew already installed."

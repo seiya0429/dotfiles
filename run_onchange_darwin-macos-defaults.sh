@@ -1,5 +1,5 @@
-if [ $(uname) != "Darwin" ] ; then
-	echo "Not MacOS!"
+#!/bin/zsh
+if [ "$(uname)" != "Darwin" ]; then
 	exit 0
 fi
 
@@ -74,17 +74,20 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ## フルキーボードアクセスを有効化
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Security
+# Security（sudo は対話ターミナル向け。CI 等では失敗し得る）
 ## ファイアウォールon
-sudo defaults write /Library/Preferences/com.Apple.alf globalstate -int 1
+sudo defaults write /Library/Preferences/com.Apple.alf globalstate -int 1 \
+	|| echo "run_onchange_darwin-macos-defaults: skipped sudo (firewall); re-run: chezmoi apply in Terminal" >&2
 
 # Others
 ## GoogleのパブリックDNSを使用する
-networksetup -setdnsservers Wi-Fi 2001:4860:4860::8844 2001:4860:4860::8888 8.8.4.4 8.8.8.8
+networksetup -setdnsservers Wi-Fi 2001:4860:4860::8844 2001:4860:4860::8888 8.8.4.4 8.8.8.8 \
+	|| echo "run_onchange_darwin-macos-defaults: networksetup failed (may need admin)" >&2
 ## 自動で頭文字を大文字にしない
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool "false"
 ## スペルの訂正を無効にする
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
 
 # SpotLight インデックスを無効化
-sudo mdutil -a -i off
+sudo mdutil -a -i off \
+	|| echo "run_onchange_darwin-macos-defaults: skipped sudo (mdutil); re-run: chezmoi apply in Terminal" >&2
