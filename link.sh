@@ -28,4 +28,14 @@ ln -sf ~/dotfiles/homebrew/.Brewfile ~/.Brewfile
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/claude/settings.json ~/.claude/settings.json
 ln -sf ~/dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sfn ~/dotfiles/claude/hooks ~/.claude/hooks
+ln -sfn ~/dotfiles/claude/skills ~/.claude/skills
 ln -sfn ~/dotfiles/claude/commands ~/.claude/commands
+
+# claude (work profile; CLAUDE_CONFIG_DIR=~/.claude-work)
+mkdir -p ~/.claude-work
+ln -sf ~/dotfiles/claude/settings.json ~/.claude-work/settings.json
+ln -sf ~/dotfiles/claude/CLAUDE.md ~/.claude-work/CLAUDE.md
+ln -sfn ~/dotfiles/claude/hooks ~/.claude-work/hooks
+ln -sfn ~/dotfiles/claude/skills ~/.claude-work/skills
+ln -sfn ~/dotfiles/claude/commands ~/.claude-work/commands

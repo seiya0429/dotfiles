@@ -28,5 +28,8 @@ source ${DOTFILES_ZSH_HOME}/.zshrc.path
 # setting asdf
 source ${DOTFILES_ZSH_HOME}/.zshrc.asdf
 
+# claude code (work profile)
+source ${DOTFILES_ZSH_HOME}/.zshrc.claude
+
 # check_update_dotfiles
 (source ${DOTFILES_ZSH_HOME}/.zshrc.check_update_dotfiles &) > /dev/null
