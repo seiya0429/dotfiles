@@ -22,6 +22,62 @@
 
 - ソースは `$(chezmoi source-path)`（通常 `~/.local/share/chezmoi`）で、変更後は `chezmoi apply` または `chezmoi cd` して `git` で push します。
 
+## Claude Code マルチアカウント
+
+個人用と仕事用で認証・履歴を分けつつ、`CLAUDE.md` / skills 等は chezmoi 管理の `~/.claude` を work 側へ symlink 同期する構成です。詳細は [Claude Codeで仕事用・個人用アカウントを使い分ける方法](https://zenn.dev/yamitake/articles/claude-code-multi-account) を参照。
+
+| 用途 | コマンド / 条件 | 設定ディレクトリ |
+|------|-----------------|------------------|
+| 個人（デフォルト） | `claude` | `~/.claude`（chezmoi） |
+| 仕事（手動） | `work-claude` | `~/.claude-work` |
+| 仕事（自動） | 仕事リポで `direnv` が有効なとき `claude` | `~/.claude-work` |
+
+`chezmoi apply` で `~/.claude-work` へのミラーが走ります（[`run_onchange_darwin-claude-work-mirror.sh.tmpl`](run_onchange_darwin-claude-work-mirror.sh.tmpl)）。
+
+### 初回セットアップ
+
+1. `chezmoi apply` 後、新しいシェルを開く（`direnv` は Brewfile 経由で入る）
+2. 仕事アカウントで初回ログイン:
+
+```bash
+work-claude
+```
+
+ブラウザで仕事用アカウントにログインする。Claude Code 起動後 `/status` でアカウントを確認する。
+
+3. 個人アカウント確認:
+
+```bash
+claude
+# 起動後
+/status
+```
+
+### 仕事用リポでの direnv
+
+リポのルートに `.envrc`（共有可能）と `.envrc.local`（ローカルのみ、グローバル gitignore で除外）を置く。
+
+```bash
+# .envrc
+source_env_if_exists .envrc.local
+```
+
+```bash
+# .envrc.local
+export CLAUDE_CONFIG_DIR=$HOME/.claude-work
+```
+
+```bash
+cd /path/to/work-repo
+direnv allow
+claude
+/status
+```
+
+### 既知の制限
+
+プラグイン / marketplaces が `~/.claude` にハードコードされる問題があります（[anthropics/claude-code#15071](https://github.com/anthropics/claude-code/issues/15071)）。認証・履歴・`settings.local.json` の分離は問題なく動作します。
+
 ## 手動での設定
 
 ### SSH鍵の設定
