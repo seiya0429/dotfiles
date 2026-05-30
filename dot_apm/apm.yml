@@ -1,0 +1,9 @@
+name: seiya
+version: 1.0.0
+description: APM project for seiya
+author: seiya0429
+dependencies:
+  apm:
+  - mizchi/skills/empirical-prompt-tuning
+  mcp: []
+scripts: {}
