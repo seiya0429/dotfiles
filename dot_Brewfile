@@ -10,6 +10,7 @@ brew "zsh-autosuggestions"
 brew "peco"
 brew "supabase"
 brew "lefthook"
+brew "direnv"
 
 cask "setapp"
 cask "ngrok"
