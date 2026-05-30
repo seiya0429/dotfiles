@@ -1,0 +1,4 @@
+# chezmoi edit / chezmoi edit-config で Cursor を使う（ターミナルに戻る前に編集完了を待つ）
+[edit]
+command = "cursor"
+args = ["--wait"]
