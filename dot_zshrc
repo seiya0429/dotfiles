@@ -11,6 +11,9 @@ fi
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# direnv（プロジェクトごとの環境変数）
+eval "$(direnv hook zsh)"
+
 # peco（Ctrl-r で履歴検索）
 # https://www.instagram.com/pecotecooo/?hl=en
 function peco-select-history() {
@@ -72,7 +75,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Claude Code — work profile（CLAUDE_CONFIG_DIR）
-# https://zenn.dev/mayuyu/articles/8cc4c5f35b41d9
+# https://zenn.dev/yamitake/articles/claude-code-multi-account
 alias work-claude='CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
 
 # dotfiles に未コミット変更があるとき警告（バックグラウンド）
